@@ -1,8 +1,8 @@
 <?php
-
-require __DIR__."/../User.class.php";
+namespace UnitTestingApp\Tests;
 
 use PHPUnit\Framework\TestCase;
+use UnitTestingApp\User;
 
 class UserTest extends TestCase {
     public function testReturnFullName() {
@@ -15,5 +15,11 @@ class UserTest extends TestCase {
     public function testReturnEmpty() {
         $user = new User;
         $this->assertEquals("", $user->getFullName());
+    }
+
+    public function UserHasFirstName() {
+        $user = new User;
+        $user->firstname = "Vishal";
+        $this->assertEquals("Vishal", $user->firstname);
     }
 }
