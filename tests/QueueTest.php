@@ -4,6 +4,7 @@ namespace UnitTestingApp\Tests;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 use UnitTestingApp\Queue;
+use UnitTestingApp\QueueException;
 
 class QueueTest extends TestCase {
 
@@ -25,5 +26,15 @@ class QueueTest extends TestCase {
         $item = $queue->pop();
         $this->assertEquals(0, $queue->getCount());
         $this->assertEquals('Vishal', $item);
+    }
+
+    public function testQueueException(): void{
+        $queue = new Queue;
+        $queue->addItemWithMaxCount(); 
+        $this->assertEquals($queue::MAX_ITEM, $queue->getCount());  
+
+        $this->expectException(QueueException::class);
+        $this->expectExceptionMessage("Queue is full");
+        $queue->push('vishal');
     }
 }
