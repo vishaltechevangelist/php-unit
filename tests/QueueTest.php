@@ -13,11 +13,11 @@ class QueueTest extends TestCase {
         return $queue;
     }
 
-    
     #[Depends('testQueueIsEmpty')]
     public function testAnItemIsAddedToTheQueue(Queue $queue): void {
         $queue->push('Vishal');
         $this->assertEquals(1, $queue->getCount());
+        
     }
 
     #[Depends('testQueueIsEmpty')]
