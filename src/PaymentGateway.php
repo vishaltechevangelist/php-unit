@@ -3,7 +3,7 @@ namespace UnitTestingApp;
 
 class PaymentGateway {
 
-    public function charge() {
+    public function charge():bool {
         return true;
     }
 
