@@ -2,7 +2,13 @@
 namespace UnitTestingApp;
 
 class Order {
-    public function __construct(Payment $payment) {
-        $this->payment = $payment;
+    public $amount = 0;
+    protected $gateway;
+    public function __construct(PaymentGateway $gateway) {
+        $this->gateway = $gateway;
+    }
+
+    public function process(): bool{
+        return $this->gateway->charge($this->amount);
     }
 }
