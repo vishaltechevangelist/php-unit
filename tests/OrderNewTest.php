@@ -24,7 +24,7 @@ class OrderNewTest extends TestCase {
         $payment_spy = Mockery::spy(PaymentGateway::class);
         $order->process($payment_spy);
 
-        $payment_spy->shouldReceive('charge')
+        $payment_spy->shouldHaveReceived('charge')
                     ->once()
                     ->with(5.97);
     }
