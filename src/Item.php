@@ -11,7 +11,7 @@ class Item {
         return rand();
     }
 
-    protected function getToken() : string {
+    private function getToken() : string {
         return uniqid();
     }
 }
