@@ -14,7 +14,8 @@ class User_MailerStaticMethod {
     }
 
     public function notify(string $message) : bool {
-        return $this->mailer::sendMessage($this->email, $message);
+        //return $this->mailer::sendMessage($this->email, $message);
+        return Mailer_StaticMethod::sendMessage($this->email, $message);
     }
 
 }
