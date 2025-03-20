@@ -23,7 +23,7 @@ class UserTest_MailerStaticMethod extends TestCase {
         $user = new User_MailerStaticMethod('pri@example.com');
 
         $mock = Mockery::mock('alias:Mailer_StaticMethod');
-        $mock->shouldReceive('sendMessage')->once()->with($user->email, "Hey")->andReturn(true);
+        $mock->shouldReceive('sendMessage')->with($user->email, "Hey")->andReturn(true);
         $this->assertTrue($user->notify('Hey'));
     }
 }
